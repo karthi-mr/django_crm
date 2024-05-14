@@ -1,0 +1,29 @@
+{% extends "webapp/base.html" %} {% load crispy_forms_tags %}
+
+<!-- -->
+{% block content %}
+<div class="container bg-light shadow-lg p-5 form-layout">
+    <h3>Update Record</h3>
+
+    <!-- form -->
+    <form method="post" autocomplete="off">
+        <!-- csrf token -->
+        {% csrf_token %}
+
+        <!-- form -->
+        {{ form| crispy }}
+        <br />
+
+        <button type="submit" class="btn btn-success w-50 p-2">Update Account</button>
+        <a
+            href="{% url 'view-record' record.id %}"
+            type="button"
+            class="btn btn-warning w-25 p-2 ms-3"
+        >
+            Return
+        </a>
+    </form>
+
+    <br />
+</div>
+{% endblock content %}

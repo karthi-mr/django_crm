@@ -1,0 +1,29 @@
+{% extends "webapp/base.html" %} {% load crispy_forms_tags %}
+
+<!-- -->
+{% block content %}
+<div class="container bg-light shadow-lg p-5 form-layout">
+    <h3>Create Record</h3>
+
+    <!-- form -->
+    <form method="post" autocomplete="off">
+        <!-- csrf token -->
+        {% csrf_token %}
+
+        <!-- form -->
+        {{ form| crispy }}
+        <br />
+
+        <button type="submit" class="btn btn-success w-50 p-2">
+            <i class="fa-solid fa-circle-check fa-beat me-1" style="color: #ffd43b"></i>
+            Create Record
+        </button>
+        <a href="{% url 'dashboard' %}" type="button" class="btn btn-warning w-25 p-2 ms-3">
+            <i class="fa-solid fa-hand-point-left fa-beat-fade me-1"></i>
+            Return
+        </a>
+    </form>
+
+    <br />
+</div>
+{% endblock content %}
